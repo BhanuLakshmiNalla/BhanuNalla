@@ -1,0 +1,68 @@
+import openai
+import gradio as gr
+from gtts import gTTS
+import os
+import tempfile
+
+openai.api_key = " "
+
+# Store conversations with unique IDs
+conversations = {}
+
+def CustomChatGPT(user_input, unique_id):
+    if unique_id not in conversations:
+        conversations[unique_id] = [{"role": "system", "content": "You are an educational assistant that specializes in helping students learn and answering questions on various subjects."}]
+    
+    messages = conversations[unique_id]
+    messages.append({"role": "user", "content": user_input})
+    
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages
+    )
+    
+    ChatGPT_reply = response["choices"][0]["message"]["content"]
+    messages.append({"role": "assistant", "content": ChatGPT_reply})
+    conversations[unique_id] = messages
+    
+    return ChatGPT_reply
+
+def generate_image(prompt):
+    response = openai.Image.create(
+        prompt=prompt,
+        n=1,
+        size="512x512"
+    )
+    image_url = response['data'][0]['url']
+    return image_url
+
+def text_to_speech(text):
+    tts = gTTS(text)
+    with tempfile.NamedTemporaryFile(delete=False) as fp:
+        tts.save(fp.name)
+        return fp.name
+
+def handle_request(user_input, unique_id):
+    if user_input.lower() == "show conversation":
+        if unique_id in conversations:
+            return "\n".join([f"{msg['role']}: {msg['content']}" for msg in conversations[unique_id]]), None
+        else:
+            return "No conversation found for this ID.", None
+    elif user_input.lower().startswith("generate image of"):
+        prompt = user_input[len("generate image of "):]
+        image_url = generate_image(prompt)
+        return image_url, None
+    else:
+        chat_reply = CustomChatGPT(user_input, unique_id)
+        audio_file = text_to_speech(chat_reply)
+        return chat_reply, audio_file
+
+demo = gr.Interface(
+    fn=handle_request,
+    inputs=[gr.Textbox(label="User Input"), gr.Textbox(label="Unique ID")],
+    outputs=[gr.Textbox(label="Output"), gr.Audio(label="Audio Output")],
+    title="Educational Assistant Chatbot",
+    description="Ask me anything related to your studies or type 'show conversation' to see the history for your unique ID. Type 'generate image of [description]' to generate an image."
+)
+
+demo.launch(share=True)
