@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Page</title>
+    <link rel="stylesheet" href="/static/postpagestyles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Add Events</h1>
+        <button id="add-event-btn">Add Event</button>
+      </nav>
+    </header>
+    <a href="/eventdisplay"><button id="showevents">Show Events</button></a>
+    <div class="event-container"></div>
+
+    <!--adding/editing events -->
+    <div id="event-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-title">Add Event</h2>
+        <form id="event-form" action="/addevent" method="post">
+          <label for="event-name">Event Name:</label>
+          <input type="text" id="event-name" name="event-name" required />
+
+          <label for="event-date">Date:</label>
+          <input type="date" id="event-date" name="event-date" required />
+
+          <label for="event-venue">Venue/URL:</label>
+          <input
+            type="text"
+            id="event-venue"
+            placeholder="Venue or URL"
+            name="event-venue"
+            required
+          />
+
+          <label for="event-description">About the event</label>
+          <textarea
+            id="event-description"
+            rows="5"
+            maxlength="300"
+            name="event-description"
+            required
+          ></textarea>
+
+          <label for="event-photo">Upload Photo (optional):</label>
+          <input
+            type="file"
+            id="event-photo"
+            name="event-photo"
+            accept="image/*"
+          />
+
+          <!-- OK Button -->
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      document.getElementById("add-event-btn").onclick = () => {
+        document.getElementById("event-modal").style.display = "block";
+      };
+    </script>
+    <!--<script src="/static/eventspagejs.js"></script>-->
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Landing Page</title>
+    <link rel="stylesheet" href="/static/adminlandingstyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar-->
+    <nav>
+      <div class="nav-left">
+        <span id="admin-name">Admin Name</span>
+      </div>
+      <div class="nav-right">
+        <div class="profile-container" onclick="redirectProfile()">
+          <i class="fa fa-user"></i>
+        </div>
+        <span class="tooltip">Profile</span>
+      </div>
+    </nav>
+
+    <!-- Main  -->
+    <div class="main-content">
+      <div class="card manage-alumnus" onclick="redirectAlumniPage()">
+        <img src="/static/alumni_img.jpeg" alt="Alumni" />
+        <h3>Alumnus</h3>
+      </div>
+
+      <!-- Manage Students -->
+      <div class="card manage-students" onclick="redirectStudentPage()">
+        <img src="/static/studentimg.jpeg" alt="Manage Students" />
+        <h3>Students</h3>
+      </div>
+
+      <!-- Manage Posts Section -->
+      <div class="card manage-posts" onclick="redirectManagePosts()">
+        <img src="/static/postsimg.jpeg" alt="Manage Posts" />
+        <h3>Events</h3>
+      </div>
+    </div>
+
+    <script>
+      function redirectAlumniPage() {
+        window.location.href = "/alumnipage";
+      }
+      function redirectStudentPage() {
+        window.location.href = "/studentpage";
+      }
+
+      function redirectManagePosts() {
+        window.location.href = "/eventspage";
+      }
+
+      function redirectProfile() {
+        window.location.href = "/profile";
+      }
+    </script>
+  </body>
+</html>

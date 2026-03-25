@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/static/profilestyle.css" />
+  </head>
+  <body>
+    <div class="profile-container">
+      <h2>Profile Page</h2>
+      <div>
+        <label>Name:</label>
+        <input type="text" value="{{ user['name'] }}" readonly />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="text" value="{{ user['email'] }}" readonly />
+      </div>
+      <div>
+        <label>Role:</label>
+        <input type="text" value="{{ user['role'] }}" readonly />
+      </div>
+      <!-- Role-based fields, e.g., Company or College -->
+      <div>
+        <label
+          >{{ 'College' if user['role'] == 'Student' else 'Company' }}:</label
+        >
+        <input type="text" value="{{ user['company_or_college'] }}" readonly />
+      </div>
+    </div>
+   <!-- Save Button -->
+   <button type="submit" class="save-button">Save Changes</button>
+  </div>
+
+  <script src="/static/profile.js"></script>
+
+  <script>
+    function updateFormFields() {
+      const role = document.getElementById("job-role").value;
+      const companyLabel = document.getElementById("company-label");
+      const experienceLabel = document.getElementById("experience-label");
+
+      if (role === "Student" || role === "Admin") {
+        companyLabel.textContent = "College:";
+        experienceLabel.textContent =
+          role === "Student" ? "Year:" : "Experience:";
+      } else if (role === "Alumni") {
+        companyLabel.textContent = "Company:";
+        experienceLabel.textContent = "Experience:";
+      } else {
+        companyLabel.textContent = "Company:";
+        experienceLabel.textContent = "Experience:";
+      }
+    }
+
+    // Trigger the update on load
+    window.onload = updateFormFields;
+  </script>
+</body>
+</html>
+

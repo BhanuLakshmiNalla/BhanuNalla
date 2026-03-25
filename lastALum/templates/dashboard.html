@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/static/dashboardstyle.css" />
+  </head>
+  <body>
+    <div class="logincontainer">
+      <h2>Select Role</h2>
+      <a href="/adminlogin"><button>Admin</button></a>
+      <a href="/alumlogin"><button>Alumni</button></a>
+      <a href="/stulogin"><button>Student</button></a>
+    </div>
+
+    <script>
+      function redirectTo(page) {
+        window.location.href = page;
+      }
+    </script>
+  </body>
+</html>

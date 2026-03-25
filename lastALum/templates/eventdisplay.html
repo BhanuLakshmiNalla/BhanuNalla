@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333399;
+        padding: 20px;
+        color: white;
+        border-radius: 10px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .event-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 18%;
+        float: left;
+        margin: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .event-card:hover {
+        box-shadow: 5px 5px 5px gray;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Events</h1>
+      </nav>
+    </header>
+    {%for i in evdata: %}
+    <div class="event-card">
+      <h1 name=" event-name">{{i["event-name"]}}</h1>
+      <img
+        src="/static/heroimg.jpeg"
+        alt="eventimage"
+        style="width: 90%"
+        class="event-img"
+      />
+      <h3 name="date">{{i["event-date"]}}</h3>
+      <h3 name="venue">{{i["event-venue"]}}</h3>
+      <p name="description">{{i["event-description"]}}</p>
+
+      <a href="/delete/{{ i['event-name']|e }}">Delete</a>
+      <a>Delete</a>
+    </div>
+    {%endfor %}
+  </body>
+</html>

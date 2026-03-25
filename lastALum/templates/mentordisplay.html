@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333399;
+        padding: 20px;
+        color: white;
+        border-radius: 10px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .mentor-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 50%;
+        float: left;
+        margin: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .mentor-card:hover {
+        box-shadow: 5px 5px 5px gray;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Mentors</h1>
+      </nav>
+    </header>
+    {%for i in medata: %}
+    <div class="mentor-card">
+      <h1 name="name" style="font-weight: bold">{{i["name"]}}</h1>
+      <h3 email="company">{{i["email"]}}</h3>
+      <h3 role="pack">{{i["role"]}}</h3>
+      <h3 experience="eligibility">{{i["experience"]}}</h3>
+      <p expertise="description">{{i["expertise"]}}</p>
+      <h3 contact_method="pack">{{i["contact-method"]}}</h3>
+      <h3 bio="pack">{{i["bio"]}}</h3>
+      <h3 linkedin="pack">{{i["linkedin"]}}</h3>
+      <h3 cont="pack">{{i["contact-number"]}}</h3>
+    </div>
+    {%endfor %}
+  </body>
+</html>

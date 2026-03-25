@@ -1,0 +1,186 @@
+/* General Styling */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+header {
+  background-color: #333399;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Post Actions Section */
+.post-actions {
+  text-align: center;
+  margin: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333399;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3399ff;
+}
+
+#showjobposts {
+  padding: 10px 20px;
+  margin: 10%;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #f00a3c;
+  color: aliceblue;
+}
+
+/* Job Container */
+.job-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  margin-left: 50px; /* Margin on left */
+  margin-right: 50px; /* Margin on right */
+}
+
+/* Job Card Styling */
+.job-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.job-card h3 {
+  margin: 0;
+  color: #333399;
+}
+
+.job-card p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.job-card .posted-by {
+  font-size: 12px;
+  color: #999;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Edit and Delete Buttons at the Top Right Corner */
+.job-card .action-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.action-buttons .edit-btn,
+.action-buttons .delete-btn {
+  background-color: #333399;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action-buttons .delete-btn:hover {
+  background-color: red;
+}
+
+.action-buttons .edit-btn:hover {
+  background-color: #3399ff;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto; /* Ensure modal scrolls if content overflows */
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 10px;
+  max-height: 80vh; /* Limit modal height to be smaller than screen */
+  overflow-y: auto; /* Scroll inside the modal */
+}
+
+.close-btn {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label,
+input,
+textarea {
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  background-color: #333399;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3399ff;
+}

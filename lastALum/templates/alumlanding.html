@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alumni Landing Page</title>
+    <link rel="stylesheet" href="/static/alumlandingstyles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar-->
+    <nav>
+      <div class="nav-left">
+        <span id="alumni-name">Alumni Name</span>
+      </div>
+      <div class="nav-right">
+        <div class="profile-container" onclick="redirectProfile()">
+          <i class="fa fa-user"></i>
+        </div>
+        <span class="tooltip">Profile</span>
+      </div>
+    </nav>
+
+    <!-- Main-->
+    <div class="main-content">
+      <div class="card alumni-info" onclick="redirectAlumniInfo()">
+        <img src="/static/alumni_img.jpeg" alt="Alumni Info" />
+        <h3>Alumnus</h3>
+      </div>
+
+      <div class="card jobposts" onclick="redirectpostspage()">
+        <img src="/static/alumni_img.jpeg" alt="posts" />
+        <h3>Job Posts</h3>
+      </div>
+
+      <!-- Posts-->
+      <div class="card events" onclick="redirectEvents()">
+        <img src="/static/postsimg.jpeg" alt="Events" />
+        <h3>Events</h3>
+      </div>
+    </div>
+
+    <div id="que">
+      <a
+        href="/mentorship"
+        style="text-decoration: none; color: rgb(241, 14, 60)"
+        >Mentorship</a
+      >
+      <span class="tooltip">Are you interested in being a mentor?</span>
+    </div>
+
+    <script>
+      function redirectAlumniInfo() {
+        window.location.href = "/alumnipage";
+      }
+      function redirectpostspage() {
+        window.location.href = "/jobpostspage";
+      }
+
+      function redirectEvents() {
+        window.location.href = "/eventspage";
+      }
+
+      function redirectProfile() {
+        window.location.href = "/profile";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Sign-up Form</title>
+    <link rel="stylesheet" href="/static/mentorship.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Become a Mentor</h1>
+      <p>
+        If you are an alumnus interested in mentoring, please fill out the form
+        below.
+      </p>
+    </header>
+
+    <section class="mentor-signup-form">
+      <form action="/mentor" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="role">Current Role/Position</label>
+        <input type="text" id="role" name="role" required />
+
+        <label for="experience">Years of Experience</label>
+        <input
+          type="number"
+          id="experience"
+          name="experience"
+          min="1"
+          required
+        />
+
+        <label for="expertise">Areas of Expertise</label>
+        <textarea
+          id="expertise"
+          name="expertise"
+          rows="4"
+          placeholder="E.g., Software Engineering, AI, Business Development..."
+          required
+        ></textarea>
+
+        <label for="contact-method">Preferred Contact Method</label>
+        <select id="contact-method" name="contact_method" required>
+          <option value="email">Email</option>
+          <option value="phone">Phone</option>
+          <option value="linkedin">LinkedIn</option>
+        </select>
+
+        <label for="bio">Why do you want to be a mentor?</label>
+        <textarea
+          id="bio"
+          name="bio"
+          rows="4"
+          placeholder="Describe your motivation"
+          required
+        ></textarea>
+
+        <label for="linkedin">LinkedIn Id</label>
+        <input type="text" id="role" name="linkedin" required />
+
+        <label for="contact-number">Contact Number</label>
+        <input type="text" id="role" name="contact-number" required />
+
+        <button type="submit">Submit</button>
+      </form>
+      <div><p>{{status}}</p></div>
+    </section>
+  </body>
+</html>
